@@ -1,0 +1,13 @@
+apiVersion: ocpztp.kasmmod.office.ocpztp.com/v1
+kind: Kasmmod
+metadata:
+  labels:
+    app.kubernetes.io/name: kasmmod
+    app.kubernetes.io/instance: kasmmod-sample
+    app.kubernetes.io/part-of: kasmmod
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kasmmod
+  name: test1-wsa
+spec:
+  size: 2
+  image: lscr.io/linuxserver/libreoffice:latest

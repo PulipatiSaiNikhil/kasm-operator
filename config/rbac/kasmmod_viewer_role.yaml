@@ -1,0 +1,27 @@
+# permissions for end users to view kasmmods.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: kasmmod-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: kasmmod
+    app.kubernetes.io/part-of: kasmmod
+    app.kubernetes.io/managed-by: kustomize
+  name: kasmmod-viewer-role
+rules:
+- apiGroups:
+  - ocpztp.kasmmod.office.ocpztp.com
+  resources:
+  - kasmmods
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ocpztp.kasmmod.office.ocpztp.com
+  resources:
+  - kasmmods/status
+  verbs:
+  - get

@@ -1,0 +1,15 @@
+apiVersion: ocpztp.kasmmod.office.ocpztp.com/v1
+kind: Kasmmod
+metadata:
+  labels:
+    app.kubernetes.io/name: kasmmod
+    app.kubernetes.io/instance: kasmmod-sample
+    app.kubernetes.io/part-of: kasmmod
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kasmmod
+  name: <name-of-the-deployment>
+spec:
+  size: <size-of-the-deployment>
+  port: <port-no>
+  image: <image-of-the-application>
+  serviceaccount: <serivce-account>

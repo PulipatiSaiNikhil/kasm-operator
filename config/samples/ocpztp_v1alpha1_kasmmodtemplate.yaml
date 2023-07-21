@@ -1,0 +1,16 @@
+apiVersion: ocpztp.kasmmod.office.ocpztp.com/v1alpha1
+kind: KasmmodTemplate
+metadata:
+  labels:
+    app.kubernetes.io/name: kasmmodtemplate
+    app.kubernetes.io/instance: kasmmodtemplate-sample
+    app.kubernetes.io/part-of: kasmmod
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kasmmod
+  name: ktsample1
+spec:
+  size: 3
+  port: 3000
+  sessionid: "656664jhjh"
+  serviceaccount: test1
+  targetkasmmod: test1-wsa

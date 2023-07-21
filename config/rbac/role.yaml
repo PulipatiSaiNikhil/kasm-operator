@@ -1,0 +1,78 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - list
+- apiGroups:
+  - ocpztp.example.com
+  resources:
+  - Kasmmods
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ocpztp.example.com
+  resources:
+  - Kasmmods/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ocpztp.example.com
+  resources:
+  - Kasmmods/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - ocpztp.kasmmod.office.ocpztp.com
+  resources:
+  - kasmmodtemplates
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ocpztp.kasmmod.office.ocpztp.com
+  resources:
+  - kasmmodtemplates/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - ocpztp.kasmmod.office.ocpztp.com
+  resources:
+  - kasmmodtemplates/status
+  verbs:
+  - get
+  - patch
+  - update

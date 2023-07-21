@@ -1,0 +1,61 @@
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: false
+allowedCapabilities: null
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"allowPrivilegedContainer":false,"apiVersion":"security.openshift.io/v1","kind":"SecurityContextConstraints","metadata":{"annotations":{},"name":"final-scc"},"priority":50,"readOnlyRootFilesystem":false,"runAsUser":{"type":"RunAsAny"},"seLinuxContext":{"type":"RunAsAny"},"volumes":["configMap","downwardAPI","emptyDir","persistentVolumeClaim","projected","secret"]}
+  creationTimestamp: "2023-07-14T06:40:50Z"
+  generation: 3
+  managedFields:
+  - apiVersion: security.openshift.io/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:allowPrivilegedContainer: {}
+      f:metadata:
+        f:annotations:
+          .: {}
+          f:kubectl.kubernetes.io/last-applied-configuration: {}
+      f:priority: {}
+      f:readOnlyRootFilesystem: {}
+      f:runAsUser:
+        .: {}
+        f:type: {}
+      f:seLinuxContext:
+        .: {}
+        f:type: {}
+      f:volumes: {}
+    manager: oc
+    operation: Update
+    time: "2023-07-14T06:59:22Z"
+  name: final-scc
+  resourceVersion: "50073894"
+  uid: 4555bf6a-a849-4eb1-be63-114c05832a5f
+priority: 50
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+supplementalGroups:
+  type: RunAsAny
+users: []
+volumes:
+- configMap
+- downwardAPI
+- emptyDir
+- persistentVolumeClaim
+- projected
+- secret

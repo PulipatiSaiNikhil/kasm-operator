@@ -1,0 +1,19 @@
+apiVersion: v1
+clusters:
+- cluster:
+    insecure-skip-tls-verify: true
+    server: https://api.operator.office.ocpztp.com:6443
+  name: api-operator-office-ocpztp-com:6443
+contexts:
+- context:
+    cluster: api-operator-office-ocpztp-com:6443
+    namespace: default
+    user: kube:admin/api-operator-office-ocpztp-com:6443
+  name: default/api-operator-office-ocpztp-com:6443/kube:admin
+current-context: default/api-operator-office-ocpztp-com:6443/kube:admin
+kind: Config
+preferences: {}
+users:
+- name: kube:admin/api-operator-office-ocpztp-com:6443
+  user:
+    token: sha256~3UZBtkqQkNlOLPelNhAmvLyEcG7Cke1ghqBYZBde3Ps

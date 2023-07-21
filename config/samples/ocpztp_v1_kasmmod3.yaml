@@ -1,0 +1,16 @@
+apiVersion: ocpztp.kasmmod.office.ocpztp.com/v1
+kind: Kasmmod
+metadata:
+  labels:
+    app.kubernetes.io/name: kasmmod
+    app.kubernetes.io/instance: kasmmod-sample
+    app.kubernetes.io/part-of: kasmmod
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: kasmmod
+  name: test1-wsa3
+spec:
+  size: 2
+  port: 8080
+  image: quay.io/centos7/httpd-24-centos7
+  serviceaccount: test1-wsa3
+  sessionid: "762354672354762364872364"
