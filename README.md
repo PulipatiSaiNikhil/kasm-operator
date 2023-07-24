@@ -138,21 +138,21 @@ If you are using **WSL(Windows Subsystem for Linux)**, we can use SSH(Secure She
 
 With the Remote-SSH extension installed, you will see a new Status bar item at the bottom left of VS Code, as shown in the below image
 
-![../operator/vs code/Screenshot1.png](../operator/vs code/Screenshot1.png)
+![./operator/vs code/Screenshot1.png](./operator/vs code/Screenshot1.png)
 
 The __Remote Status bar__ item can quickly show you in which context VS Code is running (local or remote) and clicking on the item will bring up the options as shown below
 
-![../operator/vs code/Screenshot2.png](../operator/vs code/Screenshot2.png)
+![./operator/vs code/Screenshot2.png](./operator/vs code/Screenshot2.png)
 
 As we are WSL in this documentation, we can either choose options **Connect to WSL** or **Connect to WSL using Distro...**
 
 If Connect to WSL is chosen, the default WSL would be connected else if Connect to WSL using Distro... is chosen, a dropdown of all the WSL present in the system would be displayed and can connect to any of the subsystem as shown below.
 
-![../operator/vs code/Screenshot3.png](../operator/vs code/Screenshot3.png)
+![./operator/vs code/Screenshot3.png](./operator/vs code/Screenshot3.png)
 
 After selecting the distro, VS Code securely connects to the remote server/system through SSH.
 
-![../operator/vs code/Screenshot4.png](../operator/vs code/Screenshot4.png)
+![./operator/vs code/Screenshot4.png](./operator/vs code/Screenshot4.png)
 
 The above image shows that kali-Linux remote system is connected to VS Code through SSH and can develop from here and access the terminal from terminal=>new terminal option in VS Code.
 
@@ -160,7 +160,7 @@ The above image shows that kali-Linux remote system is connected to VS Code thro
 
 If you wish to close the connection with the remote server/system, click on the Remote status bar which shows up options as below
 
-![../operator/vs code/Screenshot5.png](../operator/vs code/Screenshot5.png)
+![./operator/vs code/Screenshot5.png](./operator/vs code/Screenshot5.png)
 
 Choose **Close Remote Connection** to end the remote server/system connection.
 
@@ -344,7 +344,7 @@ after hitting enter, enter y for creating `resource` and `controller` when promp
 
 Modify the Go type definition at `api/v1/kasmmod_types.go` to have the following `spec` and `status`:
 
-<img src="../operator/Spec_status.jpeg" alt="spec_status.png" style="zoom: 50%;" />
+<img src="./operator/Spec_status.jpeg" alt="./operator/Spec_status.png" style="zoom: 50%;" />
 
 Update the generated code with for the resource type:
 
@@ -378,7 +378,7 @@ For this Operator, update the generated controller file `controllers/kasmmod_con
 
 The below code snippet explains about how the deployment is created.
 
-![./deployment.png](../operator/deployment.png)
+![./operator/deployment.png](./operator/deployment.png)
 
 ```go
 found := &appsv1.Deployment{}
@@ -414,7 +414,7 @@ dep := r.deploymentForKasmmod(Kasmmod)
 - This method aims to generate a new `Deployment` object based on the `Kasmmod` object. It likely contains the logic to set the desired deployment specifications.
 - The below function defines the creation of a new `Deployment` using `deploymentForKasmmod` function.
 
-<img src="../operator/deployment_func.png" alt="deployment_func.png" style="zoom:50%;" />
+<img src="./operator/deployment_func.png" alt="./operator/deployment_func.png" style="zoom:50%;" />
 
 ```
 log.Info("Creating a new Deployment", "Deployment.Namespace", dep.Namespace, "Deployment.Name", dep.Name)
@@ -446,7 +446,7 @@ While writing the functions for creation of `service account`, `role binding`, `
 
 As mentioned the status of the deployment contains the pod names, the following code snippet updates the status of a `Kasmmod` resource with the names of associated pods.
 
-![status.png](../operator/status.png)
+![./operator/status.png](./operator/status.png)
 
 ```go
 podList := &corev1.PodList{}
@@ -467,7 +467,7 @@ listOpts := []client.ListOption{ ... }
 
      The following code has the function `labelsForKasmmod` which takes the argument as a `string` and returns a map.
 
-     <img src="../operator/labels.png" alt="status.png" style="zoom: 50%;" />
+     <img src="./operator/labels.png" alt="./operator/status.png" style="zoom: 50%;" />
 
 ```go
 if err = r.List(ctx, podList, listOpts...); err != nil { ... }
@@ -522,7 +522,7 @@ After the creation of SCC manifest, create the SCC with the command `oc create -
 
 Here is an example of the SCC manifest that has the privileges to run Kasm application
 
-<img src="../operator/scc.png" alt="./scc.png" style="zoom:50%;" />
+<img src="./operator/scc.png" alt="./operator/scc.png" style="zoom:50%;" />
 
 `allowPrivilegedContainer: false`
 
@@ -562,7 +562,7 @@ oc get scc
 
 Now we should bind the service account with the SCC, which is done by the `reconcile` function in the `controller` file and the `rolebinding ` object for `Kasmmod` resource looks similar to this:
 
-<img src="../operator/rb_func.png" alt="./rb_func.png" style="zoom: 50%;" />
+<img src="./operator/rb_func.png" alt="./operator/rb_func.png" style="zoom: 50%;" />
 
 `Subjects: []v1.Subject{...}`:
 
@@ -606,7 +606,7 @@ We try to create the CR by referring to `api/v1/kasmmod_types.go`
 
 In the `api/v1/kasmmod_types.go` file let's have a look at the `spec` part:
 
-<img src="../operator/Spec.png" alt="Spec.png" style="zoom:50%;" />
+<img src="./operator/Spec.png" alt="./operator/Spec.png" style="zoom:50%;" />
 
 The `omitempty` tag ensures that if the field is not set in the JSON representation, it will be omitted.
 
@@ -616,7 +616,7 @@ The `Sessionid` refers to the name of the router which is used to create the hos
 
 An Example of the Custom Resource of kind `Kasmmod` is shown below.
 
-<img src="../operator/CR.png" alt="CR.png" style="zoom:67%;" />
+<img src="./operator/CR.png" alt="./operator/CR.png" style="zoom:67%;" />
 
 The `apiVersion` in the CR is broken down into `<group>.<domain>/<api-version>`
 
@@ -700,7 +700,7 @@ Reorder the API and Controller files into folders named `v1` and `v1alpha1`
 
 Modify the Go type definition at `api/v1alpha1/kasmmodtemplate_types.go` to have the following `spec` and `status`:
 
-<img src="../operator/kasmmodtemplate_api.png" alt="../operator/kasmmodtemplate_api.png" style="zoom:50%;" />
+<img src="./operator/kasmmodtemplate_api.png" alt="./operator/kasmmodtemplate_api.png" style="zoom:50%;" />
 
 Here we use the field `TargetKasmod` as mandatory field to be provided in `KasmmodTemplate` CR which takes the value as name of the existing `kasmmod` CR on the cluster .
 
