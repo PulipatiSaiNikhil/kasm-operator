@@ -522,7 +522,7 @@ After the creation of SCC manifest, create the SCC with the command `oc create -
 
 Here is an example of the SCC manifest that has the privileges to run Kasm application
 
-<img src="./operator/scc.png" alt="./operator/scc.png" style="zoom:25%;" />
+<img src="./operator/scc.png" alt="./operator/scc.png" style="zoom:10%;" />
 
 `allowPrivilegedContainer: false`
 
